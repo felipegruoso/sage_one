@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Value</th>
-      <th>Product</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,10 +14,9 @@
     <% @selling_values.each do |selling_value| %>
       <tr>
         <td><%= selling_value.value %></td>
-        <td><%= selling_value.product %></td>
-        <td><%= link_to 'Show', selling_value %></td>
-        <td><%= link_to 'Edit', edit_selling_value_path(selling_value) %></td>
-        <td><%= link_to 'Destroy', selling_value, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', product_selling_value_path(@product.id, selling_value) %></td>
+        <td><%= link_to 'Edit', edit_product_selling_value_path(@product.id, selling_value) %></td>
+        <td><%= link_to 'Destroy', product_selling_value_path(@product.id, selling_value), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Selling value', new_selling_value_path %>
+<%= link_to 'New Selling value', new_product_selling_value_path %>

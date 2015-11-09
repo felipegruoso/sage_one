@@ -1,34 +1,38 @@
 class SellingValuesController < ApplicationController
   before_action :set_selling_value, only: [:show, :edit, :update, :destroy]
 
-  # GET /selling_values
-  # GET /selling_values.json
+  # GET /products/:product_id/selling_values
+  # GET /products/:product_id/selling_values.json
   def index
-    @selling_values = SellingValue.all
+    @product        = Product.find(params[:product_id])
+    @selling_values = @product.selling_values
   end
 
-  # GET /selling_values/1
-  # GET /selling_values/1.json
+  # GET /products/:product_id/selling_values/1
+  # GET /products/:product_id/selling_values/1.json
   def show
+    @selling_value = SellingValue.find(params[:id])
   end
 
-  # GET /selling_values/new
+  # GET /products/:product_id/selling_values/new
   def new
-    @selling_value = SellingValue.new
+    @product       = Product.find(params[:product_id])
+    @selling_value = @product.selling_values.new
   end
 
-  # GET /selling_values/1/edit
+  # GET /products/:product_id/selling_values/1/edit
   def edit
+    @selling_value = SellingValue.find(params[:id])
   end
 
-  # POST /selling_values
-  # POST /selling_values.json
+  # POST /products/:product_id/selling_values
+  # POST /products/:product_id/selling_values.json
   def create
     @selling_value = SellingValue.new(selling_value_params)
 
     respond_to do |format|
       if @selling_value.save
-        format.html { redirect_to @selling_value, notice: 'Selling value was successfully created.' }
+        format.html { redirect_to product_selling_values_path(params[:product_id]), notice: 'Selling value was successfully created.' }
         format.json { render :show, status: :created, location: @selling_value }
       else
         format.html { render :new }
@@ -37,12 +41,13 @@ class SellingValuesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /selling_values/1
-  # PATCH/PUT /selling_values/1.json
+  # PATCH/PUT /products/:product_id/selling_values/1
+  # PATCH/PUT /products/:product_id/selling_values/1.json
   def update
+    @selling_value = SellingValue.find(params[:id])
     respond_to do |format|
       if @selling_value.update(selling_value_params)
-        format.html { redirect_to @selling_value, notice: 'Selling value was successfully updated.' }
+        format.html { redirect_to product_selling_values_path(params[:product_id]), notice: 'Selling value was successfully updated.' }
         format.json { render :show, status: :ok, location: @selling_value }
       else
         format.html { render :edit }
@@ -51,12 +56,13 @@ class SellingValuesController < ApplicationController
     end
   end
 
-  # DELETE /selling_values/1
-  # DELETE /selling_values/1.json
+  # DELETE /products/:product_id/selling_values/1
+  # DELETE /products/:product_id/selling_values/1.json
   def destroy
+    @selling_value = SellingValue.find(params[:id])
     @selling_value.destroy
     respond_to do |format|
-      format.html { redirect_to selling_values_url, notice: 'Selling value was successfully destroyed.' }
+      format.html { redirect_to product_selling_values_path(params[:product_id]), notice: 'Selling value was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,7 +70,8 @@ class SellingValuesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_selling_value
-      @selling_value = SellingValue.find(params[:id])
+      @product        = Product.find(params[:product_id])
+      @selling_values = @product.selling_values
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
