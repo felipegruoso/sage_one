@@ -18,7 +18,7 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should create product" do
     assert_difference('Product.count') do
-      post :create, product: { bar_code: @product.bar_code, brand: @product.brand, code: @product.code, composition: @product.composition, cost: @product.cost, currency: @product.currency, description: @product.description, expedient_material: @product.expedient_material, factor: @product.factor, feedstock: @product.feedstock, for_sale: @product.for_sale, gender: @product.gender, identification: @product.identification, inactive: @product.inactive, ipi: @product.ipi, max_stock: @product.max_stock, min_stock: @product.min_stock, ncm: @product.ncm, observation: @product.observation, provider: @product.provider, size: @product.size, stock: @product.stock, stock_purchase: @product.stock_purchase, type: @product.type, unity: @product.unity, weight: @product.weight }
+      post :create, product: { bar_code: @product.bar_code, brand: @product.brand, code: @product.code, composition: @product.composition, cost: @product.cost, currency: @product.currency, description: @product.description, expedient_material: @product.expedient_material, factor: @product.factor, feedstock: @product.feedstock, for_sale: @product.for_sale, gender: @product.gender, identification: @product.identification, inactive: @product.inactive, ipi: @product.ipi, max_stock: @product.max_stock, min_stock: @product.min_stock, ncm: @product.ncm, observation: @product.observation, provider: @product.provider, size: @product.size, stock: @product.stock, stock_purchase: @product.stock_purchase, kind: @product.kind, unity: @product.unity, weight: @product.weight }
     end
 
     assert_redirected_to product_path(assigns(:product))
@@ -35,7 +35,7 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should update product" do
-    patch :update, id: @product, product: { bar_code: @product.bar_code, brand: @product.brand, code: @product.code, composition: @product.composition, cost: @product.cost, currency: @product.currency, description: @product.description, expedient_material: @product.expedient_material, factor: @product.factor, feedstock: @product.feedstock, for_sale: @product.for_sale, gender: @product.gender, identification: @product.identification, inactive: @product.inactive, ipi: @product.ipi, max_stock: @product.max_stock, min_stock: @product.min_stock, ncm: @product.ncm, observation: @product.observation, provider: @product.provider, size: @product.size, stock: @product.stock, stock_purchase: @product.stock_purchase, type: @product.type, unity: @product.unity, weight: @product.weight }
+    patch :update, id: @product, product: { bar_code: @product.bar_code, brand: @product.brand, code: @product.code, composition: @product.composition, cost: @product.cost, currency: @product.currency, description: @product.description, expedient_material: @product.expedient_material, factor: @product.factor, feedstock: @product.feedstock, for_sale: @product.for_sale, gender: @product.gender, identification: @product.identification, inactive: @product.inactive, ipi: @product.ipi, max_stock: @product.max_stock, min_stock: @product.min_stock, ncm: @product.ncm, observation: @product.observation, provider: @product.provider, size: @product.size, stock: @product.stock, stock_purchase: @product.stock_purchase, kind: @product.kind, unity: @product.unity, weight: @product.weight }
     assert_redirected_to product_path(assigns(:product))
   end
 

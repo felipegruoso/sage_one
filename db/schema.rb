@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109011429) do
+ActiveRecord::Schema.define(version: 20151109142233) do
 
   create_table "categories", force: :cascade do |t|
     t.text     "description", limit: 65535
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20151109011429) do
     t.float    "weight",             limit: 24
     t.float    "size",               limit: 24
     t.boolean  "inactive",           limit: 1
-    t.integer  "type",               limit: 4
+    t.integer  "kind",               limit: 4
     t.text     "composition",        limit: 65535
     t.text     "feedstock",          limit: 65535
     t.text     "expedient_material", limit: 65535

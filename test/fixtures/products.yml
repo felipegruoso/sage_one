@@ -18,7 +18,7 @@ one:
   weight: 1.5
   size: 1.5
   inactive: false
-  type: 1
+  kind: 1
   composition: MyText
   feedstock: MyText
   expedient_material: MyText
@@ -46,7 +46,7 @@ two:
   weight: 1.5
   size: 1.5
   inactive: false
-  type: 1
+  kind: 1
   composition: MyText
   feedstock: MyText
   expedient_material: MyText
