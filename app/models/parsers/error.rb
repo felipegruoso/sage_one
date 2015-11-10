@@ -6,7 +6,7 @@ module Parsers
   #
   class Error
 
-    UNEXPECTED_ERROR = "Unexpected Error"
+    UNEXPECTED_ERROR = "An unexpected error has occurred while processing the file."
 
     attr_reader :message
 
