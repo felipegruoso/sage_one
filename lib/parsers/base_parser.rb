@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Parsers
 
   class BaseParser
@@ -49,8 +51,10 @@ module Parsers
     def handle_exception(&block)
       yield
 
-    # For now all errors should be classified as unexpected.
+    rescue TypeError
+      return Parsers::Error.invalid_type
     rescue Exception => e
+      # NOTE: Temporary to help on development.
       puts e
       puts e.backtrace
       return Parsers::Error.unexpected_error
@@ -58,6 +62,10 @@ module Parsers
 
     def parse
       raise NoMethodError.new('Override this method on children classes.')
+    end
+
+    def decode_line(line)
+      line.force_encoding('ISO-8859-1').encode('UTF-8')
     end
 
   end

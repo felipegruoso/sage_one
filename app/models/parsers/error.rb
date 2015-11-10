@@ -7,6 +7,7 @@ module Parsers
   class Error
 
     UNEXPECTED_ERROR = "An unexpected error has occurred while processing the file."
+    INVALID_TYPE     = "The file is not for products."
 
     attr_reader :message
 
@@ -16,6 +17,10 @@ module Parsers
 
     def self.unexpected_error
       self.new(UNEXPECTED_ERROR)
+    end
+
+    def self.invalid_type
+      self.new(INVALID_TYPE)
     end
 
   end
