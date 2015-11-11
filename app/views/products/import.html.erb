@@ -1,6 +1,7 @@
 <h1>Import Products</h1>
 
 <div id="import" class="row">
+
   <!-- Explanation -->
   <div class="col-md-6">
     <h4>What is it?</h4>
@@ -22,7 +23,7 @@
         <%= file_field_tag :file, class: "form-control", accept: '.csv, .txt' %>
         <p class="help-block">Only CSV (BlueBill) and TXT (YouDoInvoice) files are supported.</p>
         <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
-          <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload
+          <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Import
         <% end %>
       </div>
 

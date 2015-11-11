@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   # This should come before resources to have the priority
   # higher than products#edit.
   get  '/products/import' => 'products#import', as: :import_products
@@ -10,12 +12,16 @@ Rails.application.routes.draw do
     resources :categories
   end
 
+  #
+  # WelcomeController
+  #
+  get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
