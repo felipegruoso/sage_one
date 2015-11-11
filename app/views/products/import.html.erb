@@ -1,7 +1,33 @@
-<h1>Upload</h1>
+<h1>Import Products</h1>
 
-<%= form_tag(upload_products_path, multipart: true, remote: true, authenticity_token: true) do %>
-  <label for="file">File to Upload</label>
-  <%= file_field_tag "file" %>
-  <%= submit_tag %>
-<% end %>
+<div id="import" class="row">
+  <!-- Explanation -->
+  <div class="col-md-6">
+    <h4>What is it?</h4>
+    <p>This section allows you to upload the exported databases from two different systems: BlueBill and YouDoInvoice.</p>
+    <h4>How does it work?</h4>
+    <p>Pick an exported database file from BlueBill or YouDoInvoice system and let SageOne take care about its migration.</p>
+    <h4>What about my own products?</h4>
+    <p>Don't worry, you will be able to handle both, the imported and the created ones.</p>
+    <h4>Enjoy!</h4>
+  </div>
+  <!-- Explanation -->
+
+  <!-- File Uploader -->
+  <div class="col-md-6">
+    <%= form_tag(upload_products_path, multipart: true, remote: true, authenticity_token: true) do %>
+
+      <div class="form-group">
+        <label for="exampleInputFile">Choose a file to import</label>
+        <%= file_field_tag :file, class: "form-control", accept: '.csv, .txt' %>
+        <p class="help-block">Only CSV (BlueBill) and TXT (YouDoInvoice) files are supported.</p>
+        <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+          <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload
+        <% end %>
+      </div>
+
+    <% end %>
+  </div>
+  <!-- File Uploader -->
+
+</div>
