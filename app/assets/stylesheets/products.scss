@@ -5,3 +5,40 @@
 #import p {
   text-align: justify;
 }
+
+table {
+  table-layout: fixed;
+}
+
+th, td {
+  overflow: auto;
+  padding: 3px;
+}
+
+td > span, th > span {
+  width: 145px !important;
+  display: block;
+}
+
+th > span {
+  text-align: center
+}
+
+thead, tbody { display: block; }
+
+tbody {
+  max-height: 50vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.action-button {
+  padding: 0;
+  margin: 0;
+  width: 30%;
+  display: inline-block;
+}
+
+.actions-span {
+  text-align: center;
+}
