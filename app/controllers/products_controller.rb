@@ -61,8 +61,19 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/upload
+  # GET /products/import
+  def import
+  end
+
+  # POST /products/upload
   def upload
+    content      = params[:file].tempfile.readlines
+    content_type = params[:file].content_type
+
+    # Temporary return.
+    response = { status: 'ok' }
+
+    render json: response
   end
 
   private

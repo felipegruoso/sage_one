@@ -2,12 +2,14 @@ Rails.application.routes.draw do
 
   # This should come before resources to have the priority
   # higher than products#edit.
-  get 'products/upload' => 'products#upload', as: :upload_products
+  get  '/products/import' => 'products#import', as: :import_products
+  post '/products/upload' => 'products#upload', as: :upload_products
 
   resources :products do
     resources :selling_values
     resources :categories
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

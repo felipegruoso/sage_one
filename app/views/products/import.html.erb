@@ -1,0 +1,7 @@
+<h1>Upload</h1>
+
+<%= form_tag(upload_products_path, multipart: true, remote: true, authenticity_token: true) do %>
+  <label for="file">File to Upload</label>
+  <%= file_field_tag "file" %>
+  <%= submit_tag %>
+<% end %>
