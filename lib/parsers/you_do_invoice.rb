@@ -29,15 +29,15 @@ module Parsers
           value    = values[8] if value.blank?
 
           product = {
-            code:        values[1],
-            description: values[2],
-            bar_code:    bar_code,
-            ncm:         values[4],
-            ipi:         values[5],
-            gender:      values[6],
-            unity:       unity,
-            value:       value,
-            quantity:    values[12]
+            code:           values[1],
+            description:    values[2],
+            bar_code:       bar_code,
+            ncm:            values[4],
+            ipi:            values[5],
+            gender:         values[6],
+            unity:          unity,
+            selling_values: [value],
+            stock:          values[12]
           }
 
           products << product

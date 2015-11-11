@@ -7,14 +7,14 @@ module Parsers
     attr_reader :content
 
     DICTIONARY = {
-      "Categoria"            => :category,
+      "Categoria"            => :categories,
       "Unidade"              => :unity,
       "Descrição"            => :description,
       "Identificação"        => :identification,
       "Custo"                => :cost,
-      "Preço de Venda 1"     => :selling_price,
-      "Preço de Venda 2"     => :selling_price,
-      "Preço de Venda 3"     => :selling_price,
+      "Preço de Venda 1"     => :selling_values,
+      "Preço de Venda 2"     => :selling_values,
+      "Preço de Venda 3"     => :selling_values,
       "Observações"          => :observation,
       "Fornecedor"           => :provider,
       "Estoque"              => :stock,
@@ -33,14 +33,14 @@ module Parsers
       "Matéria Prima"        => :feedstock,
       "Material Expediente"  => :expedient_material,
       "Para Venda"           => :for_sale,
-      "Moeda"                => :coin,
+      "Moeda"                => :currency,
     }
 
-    def self.parse(content = nil)
+    def self.parse(content)
       self.new(content).safe_parse
     end
 
-    def initialize(content = nil)
+    def initialize(content = [])
       @content = content
     end
 
@@ -53,10 +53,7 @@ module Parsers
 
     rescue TypeError
       return Parsers::Error.invalid_type
-    rescue Exception => e
-      # NOTE: Temporary to help on development.
-      puts e
-      puts e.backtrace
+    rescue Exception
       return Parsers::Error.unexpected_error
     end
 

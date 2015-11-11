@@ -70,8 +70,7 @@ class ProductsController < ApplicationController
     content      = params[:file].tempfile.readlines
     content_type = params[:file].content_type
 
-    # Temporary return.
-    response = { status: 'ok' }
+    response = Importer.import_products(content, content_type)
 
     render json: response
   end

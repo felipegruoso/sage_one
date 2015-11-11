@@ -1,14 +1,26 @@
 module Parsers
 
-  def self.parse_file(args = {})
+  BLUE_BILL_FORMAT      = "application/vnd.ms-excel"
+  YOU_DO_INVOICE_FORMAT = "text/plain"
+
+  def self.parse_file(content, content_type)
+    if content_type == BLUE_BILL_FORMAT
+      parse_blue_bill(content)
+
+    elsif content_type == YOU_DO_INVOICE_FORMAT
+      parse_you_do_invoice(content)
+
+    else
+      Parsers::Error.invalid_file
+    end
   end
 
-  def self.parse_you_do_invoice(args = {})
-    Parsers::YouDoInvoice.new(args).parse
+  def self.parse_you_do_invoice(content)
+    Parsers::YouDoInvoice.parse(content)
   end
 
-  def self.parse_blue_bill(args = {})
-    Parsers::BlueBill.new(args).parse
+  def self.parse_blue_bill(content)
+    Parsers::BlueBill.parse(content)
   end
 
 end

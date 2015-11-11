@@ -4,7 +4,11 @@ module Parsers
 
   class BlueBill < Parsers::BaseParser
 
-    ARRAY_KEYS = [:category, :selling_price]
+    ARRAY_KEYS = [:categories, :selling_values]
+    FLOAT_KEYS = [
+      :cost, :stock, :min_stock, :max_stock, :stock_purchase,
+      :factor, :weight, :size
+    ]
 
     def parse
       headers  = decode_line(content.shift).split(";").map(&:to_s)
@@ -16,7 +20,10 @@ module Parsers
         decode_line(line).split(";").map(&:to_s).each_with_index do |data, index|
           header = eval(headers[index])
           key    = DICTIONARY[header]
-          value  = eval(data)
+
+          if FLOAT_KEYS.include?(key)
+            data.gsub!(',', '.')
+          end
 
           if ARRAY_KEYS.include?(key)
             hsh[key] ||= []
@@ -24,7 +31,8 @@ module Parsers
             hsh[key] = ''
           end
 
-          hsh[key] << value.to_s
+          value    = eval(data)
+          hsh[key] << value.to_s if value.present?
         end
 
         products << hsh
