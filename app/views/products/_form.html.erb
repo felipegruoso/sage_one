@@ -11,111 +11,151 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :unity %><br>
-    <%= f.text_field :unity %>
+  <div class="row">
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+
+          <div class="col-sm-4">
+
+            <div class="form-group">
+              <%= f.label :code %>
+              <%= f.text_field :code, class: "form-control", placeholder: "Code" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :bar_code, 'Bar Code' %>
+              <%= f.text_field :bar_code, class: "form-control", placeholder: "Bar Code" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :description %>
+              <%= f.text_field :description, class: "form-control", placeholder: "Description" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :identification %>
+              <%= f.text_field :identification, class: "form-control", placeholder: "Identification" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :ncm, 'NCM' %>
+              <%= f.text_field :ncm, class: "form-control", placeholder: "NCM" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :brand %>
+              <%= f.text_field :brand, class: "form-control", placeholder: "Brand" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :unity %>
+              <%= f.text_field :unity, class: "form-control", placeholder: "Unity" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :cost %>
+              <%= f.text_field :cost, class: "form-control", placeholder: "Cost" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :observation %>
+              <%= f.text_area :observation, class: "form-control obs", placeholder: "Observation" %>
+            </div>
+
+          </div>
+          <div class="col-sm-4">
+
+            <div class="form-group">
+              <%= f.label :provider %>
+              <%= f.text_field :provider, class: "form-control", placeholder: "Provider" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :stock %>
+              <%= f.text_field :stock, class: "form-control", placeholder: "Stock" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :min_stock, 'Mix Stock' %>
+              <%= f.text_field :min_stock, class: "form-control", placeholder: "Min Stock" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :max_stock, 'Max Stock' %>
+              <%= f.text_field :max_stock, class: "form-control", placeholder: "Max Stock" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :stock_purchase, 'Stock Purchase' %>
+              <%= f.text_field :stock_purchase, class: "form-control", placeholder: "Stock Purchase" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :factor %>
+              <%= f.text_field :factor, class: "form-control", placeholder: "Factor" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :weight %>
+              <%= f.text_field :weight, class: "form-control", placeholder: "Weight" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :size %>
+              <%= f.text_field :size, class: "form-control", placeholder: "Size" %>
+            </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <%= f.check_box :inactive %> Inactive
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <%= f.check_box :for_sale %> For Sale
+                </label>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-sm-4">
+
+            <div class="form-group">
+              <%= f.label :kind %>
+              <%= f.number_field :kind, class: "form-control", placeholder: "Kind" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :gender %>
+              <%= f.text_field :gender, class: "form-control", placeholder: "Gender" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :composition %>
+              <%= f.text_field :composition, class: "form-control", placeholder: "Composition" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :feedstock %>
+              <%= f.text_field :feedstock, class: "form-control", placeholder: "Feedstock" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :expedient_material, 'Expedient Material' %>
+              <%= f.text_field :expedient_material, class: "form-control", placeholder: "Expedient Material" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :currency %>
+              <%= f.text_field :currency, class: "form-control", placeholder: "Currency" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :ipi, "IPI" %>
+              <%= f.text_field :ipi, class: "form-control", placeholder: "IPI" %>
+            </div>
+
+
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <%= button_tag(type: 'submit', class: "btn btn-primary pull-right") do %>
+                <span class="glyphicon glyphicon-ok"></span> <%= f.object.new_record? ? "Create" : "Update" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :identification %><br>
-    <%= f.text_field :identification %>
-  </div>
-  <div class="field">
-    <%= f.label :cost %><br>
-    <%= f.text_field :cost %>
-  </div>
-  <div class="field">
-    <%= f.label :observation %><br>
-    <%= f.text_area :observation %>
-  </div>
-  <div class="field">
-    <%= f.label :provider %><br>
-    <%= f.text_field :provider %>
-  </div>
-  <div class="field">
-    <%= f.label :stock %><br>
-    <%= f.text_field :stock %>
-  </div>
-  <div class="field">
-    <%= f.label :bar_code %><br>
-    <%= f.text_field :bar_code %>
-  </div>
-  <div class="field">
-    <%= f.label :min_stock %><br>
-    <%= f.text_field :min_stock %>
-  </div>
-  <div class="field">
-    <%= f.label :max_stock %><br>
-    <%= f.text_field :max_stock %>
-  </div>
-  <div class="field">
-    <%= f.label :stock_purchase %><br>
-    <%= f.text_field :stock_purchase %>
-  </div>
-  <div class="field">
-    <%= f.label :factor %><br>
-    <%= f.text_field :factor %>
-  </div>
-  <div class="field">
-    <%= f.label :ncm %><br>
-    <%= f.text_field :ncm %>
-  </div>
-  <div class="field">
-    <%= f.label :brand %><br>
-    <%= f.text_field :brand %>
-  </div>
-  <div class="field">
-    <%= f.label :weight %><br>
-    <%= f.text_field :weight %>
-  </div>
-  <div class="field">
-    <%= f.label :size %><br>
-    <%= f.text_field :size %>
-  </div>
-  <div class="field">
-    <%= f.label :inactive %><br>
-    <%= f.check_box :inactive %>
-  </div>
-  <div class="field">
-    <%= f.label :kind %><br>
-    <%= f.number_field :kind %>
-  </div>
-  <div class="field">
-    <%= f.label :composition %><br>
-    <%= f.text_field :composition %>
-  </div>
-  <div class="field">
-    <%= f.label :feedstock %><br>
-    <%= f.text_field :feedstock %>
-  </div>
-  <div class="field">
-    <%= f.label :expedient_material %><br>
-    <%= f.text_field :expedient_material %>
-  </div>
-  <div class="field">
-    <%= f.label :for_sale %><br>
-    <%= f.check_box :for_sale %>
-  </div>
-  <div class="field">
-    <%= f.label :currency %><br>
-    <%= f.text_field :currency %>
-  </div>
-  <div class="field">
-    <%= f.label :code %><br>
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :ipi %><br>
-    <%= f.text_field :ipi %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>
