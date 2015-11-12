@@ -1,6 +1,22 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+  def create_dependents(args = {})
+    categories     = JSON.parse(args[:categories])
+    selling_values = JSON.parse(args[:selling_values])
+
+    @product.categories.destroy_all
+    @product.categories = categories.map do |category|
+      Category.new({ description: category })
+    end
+
+    @product.selling_values.destroy_all
+    @product.selling_values = selling_values.map do |selling_value|
+      SellingValue.new({ value: selling_value })
+    end
+  end
+  alias :update_dependents :create_dependents
+
   # GET /products
   # GET /products.json
   def index
@@ -27,6 +43,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     respond_to do |format|
+      create_dependents(params[:product])
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
@@ -41,6 +58,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1.json
   def update
     respond_to do |format|
+      update_dependents(params[:product])
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }

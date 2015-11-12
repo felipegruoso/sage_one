@@ -140,12 +140,14 @@
 
             <div class="form-group">
               <%= f.label :categories %>
-              <%= f.text_area :categories, value: @product.categories.map(&:description).join("; ").presence || "None", class: 'form-control custom-text-area', disabled: true %>
+              <%= f.text_area :fake_categories, value: @product.categories.map(&:description).join("; ").presence || "None", class: 'form-control custom-text-area', disabled: true %>
+              <%= f.hidden_field :categories, value: @product.categories.map(&:description).to_json %>
             </div>
 
             <div class="form-group">
               <%= f.label :selling_values %>
-              <%= f.text_area :selling_values, value: @product.selling_values.map(&:value).join("; ").presence || "None", class: 'form-control custom-text-area', disabled: true %>
+              <%= f.text_area :fake_selling_values, value: @product.selling_values.map(&:value).join("; ").presence || "None", class: 'form-control custom-text-area', disabled: true %>
+              <%= f.hidden_field :selling_values, value: @product.selling_values.map(&:value).to_json %>
             </div>
 
 
@@ -157,7 +159,7 @@
 
             <div class="col-sm-4">
               <div class="form-group">
-                <%= button_tag(:type => 'button', :class => "btn btn-default btn-block", :'data-toggle' => "modal", :'data-target' => "#categories-modal") do %>
+                <%= button_tag(:type => 'button', :class => "btn btn-default btn-block open-modal-categories", :'data-toggle' => "modal", :'data-target' => "#modal") do %>
                   <span class="glyphicon glyphicon-<%= f.object.new_record? ? "plus" : "pencil" %>"></span> <%= f.object.new_record? ? "Create" : "Update" %> Categories
                 <% end %>
               </div>
@@ -165,7 +167,7 @@
 
             <div class="col-sm-4">
               <div class="form-group">
-                <%= button_tag(:type => 'button', :class => "btn btn-default btn-block", :'data-toggle' => "modal", :'data-target' => "#selling-values-modal") do %>
+                <%= button_tag(:type => 'button', :class => "btn btn-default btn-block open-modal-selling-values", :'data-toggle' => "modal", :'data-target' => "#modal") do %>
                   <span class="glyphicon glyphicon-<%= f.object.new_record? ? "plus" : "pencil" %>"></span> <%= f.object.new_record? ? "Create" : "Update" %> Selling Values
                 <% end %>
               </div>
@@ -188,51 +190,28 @@
 
 <% end %>
 
-<!-- Categories Modal -->
-<div class="modal fade" id="categories-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Categories</h4>
-      </div>
-      <div class="modal-body">
-        <div id="inputs"></div>
-      </div>
-      <div class="modal-footer">
-
-        <button type="button" class="btn btn-success">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New
-        </button>
-
-        <button type="button" class="btn btn-danger" data-dismiss="modal">
-          <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Close
-        </button>
-
-        <button type="button" class="btn btn-primary">
-          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Confirm
-        </button>
-
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Categories Modal -->
-
 <!-- Selling Values Modal -->
-<div class="modal fade" id="selling-values-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Selling Values</h4>
+        <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
       <div class="modal-body">
+
         <div id="inputs"></div>
+        <%= hidden_field_tag :title %>
+        <%= hidden_field_tag :placeholder %>
+        <%= hidden_field_tag :values %>
+        <%= hidden_field_tag :field %>
+        <%= hidden_field_tag :fake %>
+
       </div>
       <div class="modal-footer">
 
-        <button type="button" class="btn btn-success">
+
+        <button id="add-field" type="button" class="btn btn-success">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New
         </button>
 
@@ -240,7 +219,7 @@
           <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Close
         </button>
 
-        <button type="button" class="btn btn-primary">
+        <button id="modal-confirm" type="button" class="btn btn-primary">
           <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Confirm
         </button>
 
