@@ -9,91 +9,91 @@
 
       <div class="col-sm-6">
         <div class="col-sm-4"><strong>Code:</strong></div>
-        <div class="col-sm-8"><%= @product.code.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.code) %></div>
 
         <div class="col-sm-4"><strong>Bar Code:</strong></div>
-        <div class="col-sm-8"><%= @product.bar_code.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.bar_code) %></div>
 
         <div class="col-sm-4"><strong>Description:</strong></div>
-        <div class="col-sm-8"><%= @product.description.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.description) %></div>
 
         <div class="col-sm-4"><strong>Identification:</strong></div>
-        <div class="col-sm-8"><%= @product.identification.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.identification) %></div>
 
         <div class="col-sm-4"><strong>Ncm:</strong></div>
-        <div class="col-sm-8"><%= @product.ncm.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.ncm) %></div>
 
         <div class="col-sm-4"><strong>Brand:</strong></div>
-        <div class="col-sm-8"><%= @product.brand.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.brand) %></div>
 
         <div class="col-sm-4"><strong>Categories:</strong></div>
-        <div class="col-sm-8"><%= @product.categories.map(&:description).join(", ").presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.categories.map(&:description).join(", "), 'None') %></div>
 
         <div class="col-sm-4"><strong>Unity:</strong></div>
-        <div class="col-sm-8"><%= @product.unity.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.unity) %></div>
 
         <div class="col-sm-4"><strong>Cost:</strong></div>
-        <div class="col-sm-8"><%= @product.cost.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.cost) %></div>
 
         <div class="col-sm-4"><strong>Selling Values:</strong></div>
-        <div class="col-sm-8"><%= @product.selling_values.map(&:value).join(", ").presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.selling_values.map(&:value).join(", "), 'None') %></div>
 
         <div class="col-sm-4"><strong>Observation:</strong></div>
-        <div class="col-sm-8"><%= @product.observation.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.observation) %></div>
 
         <div class="col-sm-4"><strong>Provider:</strong></div>
-        <div class="col-sm-8"><%= @product.provider.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.provider) %></div>
 
         <div class="col-sm-4"><strong>Stock:</strong></div>
-        <div class="col-sm-8"><%= @product.stock.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.stock) %></div>
 
         <div class="col-sm-4"><strong>Min Stock:</strong></div>
-        <div class="col-sm-8"><%= @product.min_stock.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.min_stock) %></div>
 
       </div>
 
       <div class="col-sm-6">
         <div class="col-sm-4"><strong>Max Stock:</strong></div>
-        <div class="col-sm-8"><%= @product.max_stock.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.max_stock) %></div>
 
         <div class="col-sm-4"><strong>Stock Purchase:</strong></div>
-        <div class="col-sm-8"><%= @product.stock_purchase.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.stock_purchase) %></div>
 
         <div class="col-sm-4"><strong>Factor:</strong></div>
-        <div class="col-sm-8"><%= @product.factor.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.factor) %></div>
 
         <div class="col-sm-4"><strong>Weight:</strong></div>
-        <div class="col-sm-8"><%= @product.weight.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.weight) %></div>
 
         <div class="col-sm-4"><strong>Size:</strong></div>
-        <div class="col-sm-8"><%= @product.size.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.size) %></div>
 
         <div class="col-sm-4"><strong>Inactive:</strong></div>
-        <div class="col-sm-8"><%= @product.inactive.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.inactive) %></div>
 
         <div class="col-sm-4"><strong>Kind:</strong></div>
-        <div class="col-sm-8"><%= @product.kind.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.kind) %></div>
 
         <div class="col-sm-4"><strong>Gender:</strong></div>
-        <div class="col-sm-8"><%= @product.gender.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.gender) %></div>
 
         <div class="col-sm-4"><strong>Composition:</strong></div>
-        <div class="col-sm-8"><%= @product.composition.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.composition) %></div>
 
         <div class="col-sm-4"><strong>Feedstock:</strong></div>
-        <div class="col-sm-8"><%= @product.feedstock.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.feedstock) %></div>
 
         <div class="col-sm-4"><strong>Expedient Material:</strong></div>
-        <div class="col-sm-8"><%= @product.expedient_material.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.expedient_material) %></div>
 
         <div class="col-sm-4"><strong>For Sale:</strong></div>
-        <div class="col-sm-8"><%= @product.for_sale.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.for_sale) %></div>
 
         <div class="col-sm-4"><strong>Currency:</strong></div>
-        <div class="col-sm-8"><%= @product.currency.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.currency) %></div>
 
         <div class="col-sm-4"><strong>IPI:</strong></div>
-        <div class="col-sm-8"><%= @product.ipi.presence || "&nbsp;".html_safe %></div>
+        <div class="col-sm-8"><%= get_value(@product.ipi) %></div>
       </div>
 
     </div>
