@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109142233) do
+ActiveRecord::Schema.define(version: 20151112014023) do
 
   create_table "categories", force: :cascade do |t|
     t.text     "description", limit: 65535
@@ -23,32 +23,32 @@ ActiveRecord::Schema.define(version: 20151109142233) do
   add_index "categories", ["product_id"], name: "index_categories_on_product_id", using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.text     "unity",              limit: 65535
-    t.text     "description",        limit: 65535
-    t.text     "identification",     limit: 65535
+    t.string   "unity",              limit: 255
+    t.string   "description",        limit: 255
+    t.string   "identification",     limit: 255
     t.float    "cost",               limit: 24
     t.text     "observation",        limit: 65535
-    t.text     "provider",           limit: 65535
+    t.string   "provider",           limit: 255
     t.float    "stock",              limit: 24
-    t.text     "bar_code",           limit: 65535
+    t.string   "bar_code",           limit: 255
     t.float    "min_stock",          limit: 24
     t.float    "max_stock",          limit: 24
     t.float    "stock_purchase",     limit: 24
     t.float    "factor",             limit: 24
-    t.text     "ncm",                limit: 65535
-    t.text     "brand",              limit: 65535
+    t.string   "ncm",                limit: 255
+    t.string   "brand",              limit: 255
     t.float    "weight",             limit: 24
     t.float    "size",               limit: 24
     t.boolean  "inactive",           limit: 1
     t.integer  "kind",               limit: 4
-    t.text     "composition",        limit: 65535
-    t.text     "feedstock",          limit: 65535
-    t.text     "expedient_material", limit: 65535
+    t.string   "composition",        limit: 255
+    t.string   "feedstock",          limit: 255
+    t.string   "expedient_material", limit: 255
     t.boolean  "for_sale",           limit: 1
-    t.text     "currency",           limit: 65535
-    t.text     "code",               limit: 65535
-    t.text     "ipi",                limit: 65535
-    t.text     "gender",             limit: 65535
+    t.string   "currency",           limit: 255
+    t.string   "code",               limit: 255
+    t.string   "ipi",                limit: 255
+    t.string   "gender",             limit: 255
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
   end

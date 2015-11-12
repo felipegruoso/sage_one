@@ -1,57 +1,57 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  unity: MyText
-  description: MyText
-  identification: MyText
+  unity: MyString
+  description: MyString
+  identification: MyString
   cost: 1.5
-  observation: MyText
-  provider: MyText
+  observation: MyString
+  provider: MyString
   stock: 1.5
-  bar_code: MyText
+  bar_code: MyString
   min_stock: 1.5
   max_stock: 1.5
   stock_purchase: 1.5
   factor: 1.5
-  ncm: MyText
-  brand: MyText
+  ncm: MyString
+  brand: MyString
   weight: 1.5
   size: 1.5
   inactive: false
   kind: 1
-  composition: MyText
-  feedstock: MyText
-  expedient_material: MyText
+  composition: MyString
+  feedstock: MyString
+  expedient_material: MyString
   for_sale: false
-  currency: MyText
-  code: MyText
-  ipi: MyText
-  gender: MyText
+  currency: MyString
+  code: MyString
+  ipi: MyString
+  gender: MyString
 
 two:
-  unity: MyText
-  description: MyText
-  identification: MyText
+  unity: MyString
+  description: MyString
+  identification: MyString
   cost: 1.5
-  observation: MyText
-  provider: MyText
+  observation: MyString
+  provider: MyString
   stock: 1.5
-  bar_code: MyText
+  bar_code: MyString
   min_stock: 1.5
   max_stock: 1.5
   stock_purchase: 1.5
   factor: 1.5
-  ncm: MyText
-  brand: MyText
+  ncm: MyString
+  brand: MyString
   weight: 1.5
   size: 1.5
   inactive: false
   kind: 1
-  composition: MyText
-  feedstock: MyText
-  expedient_material: MyText
+  composition: MyString
+  feedstock: MyString
+  expedient_material: MyString
   for_sale: false
-  currency: MyText
-  code: MyText
-  ipi: MyText
-  gender: MyText
+  currency: MyString
+  code: MyString
+  ipi: MyString
+  gender: MyString
