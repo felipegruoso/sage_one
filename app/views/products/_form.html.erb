@@ -53,7 +53,7 @@
             </div>
             <div class="form-group">
               <%= f.label :observation %>
-              <%= f.text_area :observation, class: "form-control obs", placeholder: "Observation" %>
+              <%= f.text_area :observation, class: "form-control custom-text-area", placeholder: "Observation" %>
             </div>
 
           </div>
@@ -138,20 +138,48 @@
               <%= f.text_field :ipi, class: "form-control", placeholder: "IPI" %>
             </div>
 
-
-          </div>
-
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12">
             <div class="form-group">
-              <%= button_tag(type: 'submit', class: "btn btn-primary pull-right") do %>
-                <span class="glyphicon glyphicon-ok"></span> <%= f.object.new_record? ? "Create" : "Update" %>
-              <% end %>
+              <%= f.label :categories %>
+              <%= f.text_area :categories, value: @product.categories.map(&:description).join("; ").presence || "None", class: 'form-control custom-text-area', disabled: true %>
             </div>
+
+            <div class="form-group">
+              <%= f.label :selling_values %>
+              <%= f.text_area :selling_values, value: @product.selling_values.map(&:value).join("; ").presence || "None", class: 'form-control custom-text-area', disabled: true %>
+            </div>
+
+
           </div>
+
         </div>
+
+          <div class="row">
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <%= button_tag(type: 'submit', class: "btn btn-default btn-block") do %>
+                  <span class="glyphicon glyphicon-<%= f.object.new_record? ? "plus" : "pencil" %>"></span> <%= f.object.new_record? ? "Create" : "Update" %> Categories
+                <% end %>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <%= button_tag(type: 'submit', class: "btn btn-default btn-block") do %>
+                  <span class="glyphicon glyphicon-<%= f.object.new_record? ? "plus" : "pencil" %>"></span> <%= f.object.new_record? ? "Create" : "Update" %> Selling Values
+                <% end %>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <%= button_tag(type: 'submit', class: "btn btn-primary btn-block") do %>
+                  <span class="glyphicon glyphicon-ok"></span> <%= f.object.new_record? ? "Create" : "Save" %>
+                <% end %>
+              </div>
+            </div>
+
+          </div>
 
       </div>
     </div>
