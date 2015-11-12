@@ -1,134 +1,118 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Unity:</strong>
-  <%= @product.unity %>
-</p>
+<h1>Product: <small><%= @product.description %></small></h1>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+<div class="row">
 
-<p>
-  <strong>Identification:</strong>
-  <%= @product.identification %>
-</p>
+  <div class="panel panel-default">
+    <div class="panel-body">
 
-<p>
-  <strong>Cost:</strong>
-  <%= @product.cost %>
-</p>
+      <div class="col-sm-6">
+        <div class="col-sm-4"><strong>Code:</strong></div>
+        <div class="col-sm-8"><%= @product.code.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Observation:</strong>
-  <%= @product.observation %>
-</p>
+        <div class="col-sm-4"><strong>Bar Code:</strong></div>
+        <div class="col-sm-8"><%= @product.bar_code.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Provider:</strong>
-  <%= @product.provider %>
-</p>
+        <div class="col-sm-4"><strong>Description:</strong></div>
+        <div class="col-sm-8"><%= @product.description.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Stock:</strong>
-  <%= @product.stock %>
-</p>
+        <div class="col-sm-4"><strong>Identification:</strong></div>
+        <div class="col-sm-8"><%= @product.identification.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Bar code:</strong>
-  <%= @product.bar_code %>
-</p>
+        <div class="col-sm-4"><strong>Ncm:</strong></div>
+        <div class="col-sm-8"><%= @product.ncm.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Min stock:</strong>
-  <%= @product.min_stock %>
-</p>
+        <div class="col-sm-4"><strong>Brand:</strong></div>
+        <div class="col-sm-8"><%= @product.brand.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Max stock:</strong>
-  <%= @product.max_stock %>
-</p>
+        <div class="col-sm-4"><strong>Categories:</strong></div>
+        <div class="col-sm-8"><%= @product.categories.map(&:description).join(", ").presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Stock purchase:</strong>
-  <%= @product.stock_purchase %>
-</p>
+        <div class="col-sm-4"><strong>Unity:</strong></div>
+        <div class="col-sm-8"><%= @product.unity.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Factor:</strong>
-  <%= @product.factor %>
-</p>
+        <div class="col-sm-4"><strong>Cost:</strong></div>
+        <div class="col-sm-8"><%= @product.cost.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Ncm:</strong>
-  <%= @product.ncm %>
-</p>
+        <div class="col-sm-4"><strong>Selling Values:</strong></div>
+        <div class="col-sm-8"><%= @product.selling_values.map(&:value).join(", ").presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Brand:</strong>
-  <%= @product.brand %>
-</p>
+        <div class="col-sm-4"><strong>Observation:</strong></div>
+        <div class="col-sm-8"><%= @product.observation.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Weight:</strong>
-  <%= @product.weight %>
-</p>
+        <div class="col-sm-4"><strong>Provider:</strong></div>
+        <div class="col-sm-8"><%= @product.provider.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Size:</strong>
-  <%= @product.size %>
-</p>
+        <div class="col-sm-4"><strong>Stock:</strong></div>
+        <div class="col-sm-8"><%= @product.stock.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Inactive:</strong>
-  <%= @product.inactive %>
-</p>
+        <div class="col-sm-4"><strong>Min Stock:</strong></div>
+        <div class="col-sm-8"><%= @product.min_stock.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Kind:</strong>
-  <%= @product.kind %>
-</p>
+      </div>
 
-<p>
-  <strong>Composition:</strong>
-  <%= @product.composition %>
-</p>
+      <div class="col-sm-6">
+        <div class="col-sm-4"><strong>Max Stock:</strong></div>
+        <div class="col-sm-8"><%= @product.max_stock.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Feedstock:</strong>
-  <%= @product.feedstock %>
-</p>
+        <div class="col-sm-4"><strong>Stock Purchase:</strong></div>
+        <div class="col-sm-8"><%= @product.stock_purchase.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Expedient material:</strong>
-  <%= @product.expedient_material %>
-</p>
+        <div class="col-sm-4"><strong>Factor:</strong></div>
+        <div class="col-sm-8"><%= @product.factor.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>For sale:</strong>
-  <%= @product.for_sale %>
-</p>
+        <div class="col-sm-4"><strong>Weight:</strong></div>
+        <div class="col-sm-8"><%= @product.weight.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Currency:</strong>
-  <%= @product.currency %>
-</p>
+        <div class="col-sm-4"><strong>Size:</strong></div>
+        <div class="col-sm-8"><%= @product.size.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Code:</strong>
-  <%= @product.code %>
-</p>
+        <div class="col-sm-4"><strong>Inactive:</strong></div>
+        <div class="col-sm-8"><%= @product.inactive.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Ipi:</strong>
-  <%= @product.ipi %>
-</p>
+        <div class="col-sm-4"><strong>Kind:</strong></div>
+        <div class="col-sm-8"><%= @product.kind.presence || "&nbsp;".html_safe %></div>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @product.gender %>
-</p>
+        <div class="col-sm-4"><strong>Gender:</strong></div>
+        <div class="col-sm-8"><%= @product.gender.presence || "&nbsp;".html_safe %></div>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+        <div class="col-sm-4"><strong>Composition:</strong></div>
+        <div class="col-sm-8"><%= @product.composition.presence || "&nbsp;".html_safe %></div>
+
+        <div class="col-sm-4"><strong>Feedstock:</strong></div>
+        <div class="col-sm-8"><%= @product.feedstock.presence || "&nbsp;".html_safe %></div>
+
+        <div class="col-sm-4"><strong>Expedient Material:</strong></div>
+        <div class="col-sm-8"><%= @product.expedient_material.presence || "&nbsp;".html_safe %></div>
+
+        <div class="col-sm-4"><strong>For Sale:</strong></div>
+        <div class="col-sm-8"><%= @product.for_sale.presence || "&nbsp;".html_safe %></div>
+
+        <div class="col-sm-4"><strong>Currency:</strong></div>
+        <div class="col-sm-8"><%= @product.currency.presence || "&nbsp;".html_safe %></div>
+
+        <div class="col-sm-4"><strong>IPI:</strong></div>
+        <div class="col-sm-8"><%= @product.ipi.presence || "&nbsp;".html_safe %></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="btn-toolbar">
+
+  <div class="btn-group">
+    <%= button_to edit_product_path(@product), method: :get, :class => "btn btn-default" do %>
+      <span class="glyphicon glyphicon-pencil"></span> Edit
+    <% end %>
+  </div>
+
+  <div class="btn-group">
+    <%= button_to products_path, method: :get, :class => "btn btn-primary" do %>
+      <span class="glyphicon glyphicon-list-alt"></span> Product List
+    <% end %>
+  </div>
+
+</div>

@@ -87,10 +87,10 @@
               <td><span><%= product.identification %></span></td>
               <td><span><%= product.ncm %></span></td>
               <td><span><%= product.brand %></span></td>
-              <td><span><%= product.categories.map(&:description).join(" ") %></span></td>
+              <td><span><%= product.categories.map(&:description).join(", ") %></span></td>
               <td><span><%= product.unity %></span></td>
               <td><span><%= product.cost %></span></td>
-              <td><span><%= product.selling_values.map(&:value).join(" ") %></span></td>
+              <td><span><%= product.selling_values.map(&:value).join(", ") %></span></td>
               <td><span><%= product.observation %></span></td>
               <td><span><%= product.provider %></span></td>
               <td><span><%= product.stock %></span></td>
