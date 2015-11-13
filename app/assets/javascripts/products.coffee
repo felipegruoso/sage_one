@@ -130,3 +130,9 @@ jQuery ->
       window.location.href = "/products"
 
     $('#remove-product-modal').modal('hide')
+
+  $('tbody').slimScroll
+    position: 'left'
+    railVisible: true
+
+  $('tbody').addClass('bordered')

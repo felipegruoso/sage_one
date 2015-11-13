@@ -55,3 +55,8 @@ tbody {
 .margin-alert {
   margin-top: 20px;
 }
+
+.bordered > tr > td {
+  border-top: 1px solid #ddd !important;
+  border-right: 1px solid #ddd !important;
+}
