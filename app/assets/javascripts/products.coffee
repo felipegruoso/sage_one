@@ -112,3 +112,22 @@ jQuery ->
     message_div.innerHTML = ''
     message_div.appendChild(div)
   )
+
+  $(document).on 'click', '.remove-product', ->
+    id = $(this).data('id')
+    $('#remove-product-modal').modal('show')
+    $('#remove_id').val(id)
+
+  $(document).on 'click', '#confirm-destroy', ->
+    id = $('#remove_id').val()
+    $.ajax(
+      url: "/products/" + id
+      type: 'delete'
+      dataType: "JSON"
+      data: {
+        id: id
+      }
+    ).complete ->
+      window.location.href = "/products"
+
+    $('#remove-product-modal').modal('hide')

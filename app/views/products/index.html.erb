@@ -73,7 +73,7 @@
 
                   <!-- Delete Button -->
                   <div class="action-button">
-                    <%= button_to product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default", :'aria-label' => "Left Align" do %>
+                    <%= button_tag :data => { id: product.id, toggle: 'modal', target: '#remove-product-modal' }, :class => "btn btn-default remove-product", :'aria-label' => "Left Align" do %>
                       <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                     <% end %>
                   </div>
@@ -128,4 +128,24 @@
     <% end %>
   </div>
 
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="remove-product-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Destroy Product</h4>
+      </div>
+      <div class="modal-body">
+        <%= hidden_field_tag :remove_id %>
+        Are you sure that you want to destroy this product?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="confirm-destroy" type="button" class="btn btn-danger">Destroy</button>
+      </div>
+    </div>
+  </div>
 </div>
