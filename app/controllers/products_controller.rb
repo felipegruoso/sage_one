@@ -1,6 +1,15 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+  #
+  # Removes all categories and selling values from the current product
+  # and add the new ones.
+  #
+  # @param [Hash] args the arguments containing a list for categories
+  #               and another for selling values.
+  # @option args [Array] :categories an array with descriptions for categories.
+  # @option args [Array] :selling_values an array with values for selling values.
+  #
   def create_dependents(args = {})
     categories     = JSON.parse(args[:categories]     || '[]')
     selling_values = JSON.parse(args[:selling_values] || '[]')

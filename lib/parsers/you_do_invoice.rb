@@ -7,6 +7,12 @@ module Parsers
     PRODUCT            = "PRODUTO"
     PRODUCT_IDENTIFIER = "I"
 
+    #
+    # Parses the file content into an array of products.
+    #
+    # @return [Array] a list containing all products to be imported.
+    # @raise [TypeError] if the file content is not as expected.
+    #
     def parse
       header = decode_line(content.shift)
 

@@ -1,5 +1,13 @@
 module Importer
 
+  #
+  # Imports all products of the given file.
+  #
+  # @param [Array] content an array containing the file lines.
+  # @param [String] content_type the file format.
+  #
+  # @return [Parsers::Message] a message with the process result.
+  #
   def self.import_products(content, content_type)
     data = Parsers.parse_file(content, content_type)
 
@@ -10,6 +18,13 @@ module Importer
     end
   end
 
+  #
+  # Imports all products of the given file.
+  #
+  # @param [Array] data an array containing the products to import.
+  #
+  # @return [Parsers::Message] a message with the process result.
+  #
   def self.import(data)
     begin
       products = []

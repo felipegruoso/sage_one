@@ -10,6 +10,11 @@ module Parsers
       :factor, :weight, :size
     ]
 
+    #
+    # Parses the file content into an array of products.
+    #
+    # @return [Array] a list containing all products to be imported.
+    #
     def parse
       headers  = decode_line(content.shift).split(";").map(&:to_s)
       products = []
