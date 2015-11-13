@@ -2,8 +2,8 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def create_dependents(args = {})
-    categories     = JSON.parse(args[:categories])
-    selling_values = JSON.parse(args[:selling_values])
+    categories     = JSON.parse(args[:categories]     || '[]')
+    selling_values = JSON.parse(args[:selling_values] || '[]')
 
     @product.categories.destroy_all
     @product.categories = categories.map do |category|
@@ -77,7 +77,8 @@ class ProductsController < ApplicationController
     flash[:notice] = 'Product was successfully destroyed'
 
     respond_to do |format|
-      format.json { head :ok }
+      format.html { render nothing: :true, status: :ok }
+      format.json { render status: :ok }
     end
   end
 

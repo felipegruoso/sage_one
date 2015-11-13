@@ -123,7 +123,6 @@ jQuery ->
     $.ajax(
       url: "/products/" + id
       type: 'delete'
-      dataType: "JSON"
       data: {
         id: id
       }
