@@ -83,5 +83,31 @@ jQuery ->
 
   $(".import-form").on("ajax:complete", (xhr, status) ->
     resp = JSON.parse(status.responseText)
-    alert(resp["message"])
+    message = resp["message"]
+
+    if message == 'Success'
+      klass = 'success'
+    else
+      klass = 'danger'
+
+    div = document.createElement('div')
+    div.className = "alert alert-" + klass + " alert-dismissible margin-alert"
+    div.setAttribute('role', 'alert')
+
+    button = document.createElement('button')
+    button.className = "close"
+    button.setAttribute('data-dismiss', 'alert')
+    button.setAttribute('aria-label', 'Close')
+
+    span = document.createElement('span')
+    span.setAttribute('aria-hidden', true)
+    span.innerHTML = "&times;"
+
+    button.appendChild(span)
+    div.appendChild(button)
+    div.insertAdjacentHTML('beforeend', message)
+
+    message_div = document.getElementById('message')
+    message_div.innerHTML = ''
+    message_div.appendChild(div)
   )
