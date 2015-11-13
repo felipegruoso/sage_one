@@ -10,7 +10,7 @@ class BaseParserTest < ActionController::TestCase
     result = parser.handle_exception { raise Exception }
 
     got      = result.message
-    expected = Parsers::Error.unexpected_error.message
+    expected = Parsers::Message.unexpected_error.message
 
     assert_equal(expected, got)
   end

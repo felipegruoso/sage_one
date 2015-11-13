@@ -86,7 +86,7 @@ class ProductsController < ApplicationController
   # POST /products/upload
   def upload
     if params[:file].blank?
-      response = Parsers::Error.no_file
+      response = Parsers::Message.no_file
     else
       content      = params[:file].tempfile.readlines
       content_type = params[:file].content_type
@@ -95,11 +95,12 @@ class ProductsController < ApplicationController
     end
 
     respond_to do |format|
-      if response.class == Parsers::Error
-        format.json { render json: { message: response.message } }
-      else
-        format.json { render json: { message: 'Success' } }
-      end
+      resp = {
+        message: response.message,
+        success: response.success
+      }
+
+      format.json { render json: resp }
     end
   end
 

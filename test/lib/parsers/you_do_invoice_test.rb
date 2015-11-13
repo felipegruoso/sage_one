@@ -16,7 +16,7 @@ class YouDoInvoiceTest < ActionController::TestCase
     @content[0] = "ITEM|10\n"
 
     got      = Parsers::YouDoInvoice.parse(@content).message
-    expected = Parsers::Error.invalid_type.message
+    expected = Parsers::Message.invalid_type.message
 
     assert_equal(expected, got)
   end

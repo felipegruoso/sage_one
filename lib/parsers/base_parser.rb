@@ -37,7 +37,7 @@ module Parsers
     }
 
     def self.parse(content)
-      return Parsers::Error.empty_file if content.size == 0
+      return Parsers::Message.empty_file if content.size == 0
       self.new(content).safe_parse
     end
 
@@ -53,9 +53,9 @@ module Parsers
       yield
 
     rescue TypeError
-      return Parsers::Error.invalid_type
+      return Parsers::Message.invalid_type
     rescue Exception
-      return Parsers::Error.unexpected_error
+      return Parsers::Message.unexpected_error
     end
 
     def parse

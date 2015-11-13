@@ -11,7 +11,7 @@ module Parsers
       parse_you_do_invoice(content)
 
     else
-      Parsers::Error.invalid_file
+      Parsers::Message.invalid_file
     end
   end
 

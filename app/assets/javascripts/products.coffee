@@ -81,11 +81,12 @@ jQuery ->
   $(document).on 'click', '.remove-input', ->
     $(this).closest('div').remove()
 
-  $(".import-form").on("ajax:complete", (xhr, status) ->
+  $(document).on("ajax:complete", ".import-form", (xhr, status) ->
     resp = JSON.parse(status.responseText)
     message = resp["message"]
+    success = resp['success']
 
-    if message == 'Success'
+    if success
       klass = 'success'
     else
       klass = 'danger'
