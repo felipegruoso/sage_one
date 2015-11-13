@@ -85,12 +85,22 @@ class ProductsController < ApplicationController
 
   # POST /products/upload
   def upload
-    content      = params[:file].tempfile.readlines
-    content_type = params[:file].content_type
+    if params[:file].blank?
+      response = Parsers::Error.no_file
+    else
+      content      = params[:file].tempfile.readlines
+      content_type = params[:file].content_type
 
-    response = Importer.import_products(content, content_type)
+      response = Importer.import_products(content, content_type)
+    end
 
-    render json: response
+    respond_to do |format|
+      if response.class == Parsers::Error
+        format.json { render json: { message: response.message } }
+      else
+        format.json { render json: { message: 'Success' } }
+      end
+    end
   end
 
   private

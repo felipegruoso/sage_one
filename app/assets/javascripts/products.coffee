@@ -80,3 +80,8 @@ jQuery ->
 
   $(document).on 'click', '.remove-input', ->
     $(this).closest('div').remove()
+
+  $(".import-form").on("ajax:complete", (xhr, status) ->
+    resp = JSON.parse(status.responseText)
+    alert(resp["message"])
+  )

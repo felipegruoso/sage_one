@@ -41,10 +41,6 @@ module Parsers
       products
     end
 
-    def decode_line(line)
-      line.force_encoding('ISO-8859-1').encode('UTF-8')
-    end
-
   end
 
 end

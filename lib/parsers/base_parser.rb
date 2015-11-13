@@ -37,6 +37,7 @@ module Parsers
     }
 
     def self.parse(content)
+      return Parsers::Error.empty_file if content.size == 0
       self.new(content).safe_parse
     end
 
@@ -62,7 +63,7 @@ module Parsers
     end
 
     def decode_line(line)
-      line.force_encoding('ISO-8859-1').encode('UTF-8')
+      line.to_s.force_encoding('ISO-8859-1').encode('UTF-8')
     end
 
   end

@@ -16,7 +16,7 @@
 
   <!-- File Uploader -->
   <div class="col-md-6">
-    <%= form_tag(upload_products_path, multipart: true, remote: true, authenticity_token: true) do %>
+    <%= form_tag(upload_products_path, multipart: true, remote: true, authenticity_token: true, class: 'import-form') do %>
 
       <div class="form-group">
         <label for="exampleInputFile">Choose a file to import</label>
