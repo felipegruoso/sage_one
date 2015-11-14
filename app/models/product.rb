@@ -8,10 +8,14 @@ class Product < ActiveRecord::Base
   # @params [Array] products an array containing all products to be imported.
   #
   def self.import(products = [])
-    ActiveRecord::Base.transaction do
-      products.each do |product|
-        product.save
+    begin
+      ActiveRecord::Base.transaction do
+        products.each do |product|
+          product.save
+        end
       end
+    rescue
+      ActiveRecord::Rollback
     end
   end
 
