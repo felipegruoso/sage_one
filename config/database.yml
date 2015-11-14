@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: sage_one_production
-  username: sage_one
-  password: <%= ENV['SAGE_ONE_DATABASE_PASSWORD'] %>
+  # username: sage_one
+  # password: <%= ENV['SAGE_ONE_DATABASE_PASSWORD'] %>
