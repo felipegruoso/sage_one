@@ -59,4 +59,9 @@ tbody {
 .bordered > tr > td {
   border-top: 1px solid #ddd !important;
   border-right: 1px solid #ddd !important;
+  border-bottom: 1px solid #ddd !important;
+}
+
+.header-bottom-border > tr > th {
+  border-bottom: 1px solid #ddd !important;
 }

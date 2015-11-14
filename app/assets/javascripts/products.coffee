@@ -135,4 +135,6 @@ jQuery ->
     position: 'left'
     railVisible: true
 
+  # Necessary because of the slimScroll.
   $('tbody').addClass('bordered')
+  $('thead').addClass('header-bottom-border')
