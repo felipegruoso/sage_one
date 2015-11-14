@@ -1,28 +1,34 @@
-== README
+== SageOne
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This solution was developed in Ruby 2.2.2 and Rails 4.2.1 following some rules described here[https://github.com/Sage/sageone_br_programming_exercises/blob/master/remote_web_application_use_case.md].
 
-Things you may want to cover:
+=== Introduction
 
-* Ruby version
+It is basically a system that allows an user to manage his products and also import them from another two systems: BlueBill and YouDoInvoice. The import is done by uploading the database files (once a time).
 
-* System dependencies
+=== Specifications
 
-* Configuration
+First of all, the looking at the described model, the following database was created:
 
-* Database creation
+{ER Diagram}[https://raw.githubusercontent.com/felipegruoso/sage_one/master/tmp/sage_one_er.png]
 
-* Database initialization
+On BlueBill specifications, there were any restriction about duplicated fields, that's why the database model allows the product to have more than one category and selling value.
 
-* How to run the test suite
+Talking about the YouDoInvoice file, the required validation about duplicated fields was made. In additional, the amount valiation was not made because of the acceptance criteria #4. Validating this quantity, ff the header specifies a number lower than the quantity of products inside the file, not all products are imported.
 
-* Services (job queues, cache servers, search engines, etc.)
+The system documentation doesn't say anything about validate if the product already exists on the database, but the opposite: If the file is valid, import all.
 
-* Deployment instructions
+=== Running the application
 
-* ...
+To run this application locally, it is necessary to copy it to your system. It can be done following this sequence:
 
+ git clone https://github.com/felipegruoso/sage_one.git
+ cd sage_one
+ bundle install
+ rake db:create
+ rake db:migrate
+ rails s -b PORT
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+It is possible to check more details by running yardoc server:
+
+ yard server -b PORT
