@@ -8,7 +8,7 @@ It is basically a system that allows an user to manage his products and also imp
 
 === Specifications
 
-First of all, the looking at the described model, the following database was created:
+First of all, looking at the described model, the following database was created:
 
 {ER Diagram}[https://raw.githubusercontent.com/felipegruoso/sage_one/master/tmp/sage_one_er.png]
 
@@ -29,6 +29,10 @@ To run this application locally, it is necessary to copy it to your system. It c
  rake db:migrate
  rails s -b PORT
 
-It is possible to check more details by running yardoc server:
+It is possible to check more technical details by running yardoc server:
 
  yard server -b PORT
+
+=== Access
+
+Access the application on HEROKU by clicking here[http://sageone.herokuapp.com/].
